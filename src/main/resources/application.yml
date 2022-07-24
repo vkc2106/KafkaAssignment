@@ -1,0 +1,32 @@
+logging:
+  level:
+    ROOT: INFO
+    com:
+      kafka.assignment: DEBUG
+      
+management:
+   security:
+      enabled: false
+    
+
+server:
+  port: 8090
+
+spring:
+  kafka:
+    consumer:
+      max-poll-records: 10
+      key-deserializer: "org.apache.kafka.common.serialization.StringDeserializer"
+      value-deserializer: "org.apache.kafka.common.serialization.StringDeserializer"
+
+kafka:
+  bootstrap-servers: localhost:9021
+  groupId: assignment
+  auto-offset-reset: earliest
+  application-id: assignment-appid
+  client-id: assignment-appid-client
+  topic:
+   producer: customer_balance_topic
+   consumers: customer_topic, balance_topic
+   customer: customer_topic
+   balance: balance_topic
